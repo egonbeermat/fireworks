@@ -192,7 +192,7 @@ void fireWorks() {
   totalBufferWaitMicros=0;
   startMicros=micros();
 
-  //Main loop, increments timw, dims particles in buffer
+  //Main loop, increments time, dims particles in buffer
   for (frame=0; frame<steps; frame+=1) {
     
     ti+=tInc;
@@ -204,6 +204,7 @@ void fireWorks() {
     else {
       startBuffer(1);  
   
+      //Fade main colors for last few frames to fade out animation
       if (frame>(steps-(trails*5))) {
         color16=dim16(color16, 1);
         color16_2=dim16(color16_2, 1);
